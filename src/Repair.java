@@ -4,12 +4,11 @@ public class Repair extends Move {
         super("Repair", Constants.REPAIR_COST);
     }
 
-    // TODO: please someone implements the heal method.
     @Override
     protected void applyEffect(Robot user, Robot opponent) {
-        user.heal(Constants.RECHARGE_AMOUNT);
+        // fixed a dumb bug here.
+        user.heal(Constants.REPAIR_AMOUNT);
     }
-    // some condition in move plus the max health thing
     @Override
     public boolean isAvailable(Robot user) {
         return super.isAvailable(user)
