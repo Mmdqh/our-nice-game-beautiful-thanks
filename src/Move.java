@@ -5,6 +5,11 @@ public abstract class Move {
     private final String name;
     private final int energyCost;
 
+    public Move(String name, int energyCost) {
+        this.name = name;
+        this.energyCost = energyCost;
+    }
+
     public String getName() {
         return name;
     }
@@ -13,8 +18,10 @@ public abstract class Move {
         return energyCost;
     }
 
-    public Move(String name, int energyCost) {
-        this.name = name;
-        this.energyCost = energyCost;
+    public boolean isAvailable(Robot user) {
+        return user.getEnergy() >= energyCost;
     }
+
+    protected abstract void applyEffect(Robot user, Robot opponent);
+
 }
